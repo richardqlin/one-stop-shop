@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+YOUR WEB PAGE TITLE GOES HERE
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="jumbotron text-center" style ="background-color: orange">
+
+        <div class="container">
+
+ <div class = "text-left">
+    <h1>Add a Product.</h1>
+
+        <button type="button" class="btn btn-default"><a href = '/'>Go Back</a></button>
+
+</div>
+    </div>
+    </div>
+
+<div class="container">
+<form  method="POST" action="/add">
+    <input type="text" name="title" size="10" placeholder="Title">
+    <input type="text" name="description" placeholder="Description">
+    <input  type="number" name="price" size="10" placeholder="$ Price" value ="">
+    <input type="text" name="unit" placeholder="Unit" value="">
+    <input  type="number" name="quantity_limited" size = "10" placeholder="Quantity Limited" value="">
+    <input type="text" name="image" placeholder="Image Link"  value=""/>
+
+    <button type = "submit" >Add Product</button>
+
+</form>
+
+</div>
+
+{% endblock %}
+
+</html>

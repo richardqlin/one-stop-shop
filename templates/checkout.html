@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+YOUR WEB PAGE TITLE GOES HERE
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="jumbotron text-center" style ="background-color: orange">
+
+        <div class="container">
+            <div class = "text-left">
+        <h1>Your Cart</h1>
+        </div>
+        </div>
+<div class = "text-left">
+                <div class="container">
+
+
+
+
+        <button type="button" class="btn btn-default"><a href = '/buy'>Empty Cart?</a></button>
+
+</div>
+    </div>
+ </div>
+
+<div class="container">
+        <table class="container" border="1">
+              <tr bgcolor="skyblue">
+
+                <td><strong> Product Title</strong></td>
+
+                <td><strong> Product Description</strong></td>
+
+                <td><strong> Product Price</strong></td>
+                <td><strong> Product Quantity</strong></td>
+
+                <td><strong> Total Price </strong></td>
+            </tr>
+    {% for product in products %}
+
+
+
+
+
+            <tr>
+     <td>{{ product.title }}</td>
+       <td>{{ product.description|capitalize }} </td>
+
+    <td> {{ product.price }} / {{ product.unit|upper }} </td>
+
+      <td>{{ product.quantity_limited }}</td>
+
+  <td>{{ product.item_total }}</td>
+
+            </tr>
+
+
+
+
+    {% endfor %}
+
+    <tr> <td colspan="4" style="text-align:right ">  Total :    </td>
+
+        <td> {{total}} </td></tr>
+
+        </table>
+</div>
+
+
+{% endblock %}
+
+</html>

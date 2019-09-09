@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+YOUR WEB PAGE TITLE GOES HERE
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="jumbotron text-center" style ="background-color: orange">
+
+        <div class="container">
+
+ <div class = "text-left">
+    <h1>Buy Products.</h1>
+
+        <button type="button" class="btn btn-default"><a href = '/'>Go Back</a></button>
+
+</div>
+    </div>
+    </div>
+
+<form method = "POST"  action = "" >
+<div class="container">
+
+
+    {% for product in products %}
+   <div class = "btn" >
+
+
+        <p> <code><img src="../static/images/{{product.image}}.jpg" alt="Apple" width="150 height="200"/> </code> </p>
+        <p> <code>{{ product.title }}</code> </p>
+      <p> <code>{{ product.description|capitalize }} </code> </p>
+
+    <p> <code> {{ product.price }} / {{ product.unit|upper }} </code> </p>
+
+    <p> <code>
+
+          <select name = "{{product['_id']}}">
+    <option value ="0">None</option>
+
+           {% for n in range(1,product['quantity_limited']|int +1) %}
+           <option value="{{n}}">{{n}}</option>
+        {% endfor %}
+       </select>
+        </code> </p>
+        <!--<input type="number" name="quantity" placeholder="None" min="0" max="{{product.quantity_limited}}" width="20"> </code> </p>-->
+
+
+
+ </div>
+{% endfor %}
+
+</div>
+<div class="container">
+
+
+ <button type = "submit" class="btn btn-success" >Add to Cart</button>
+    </div>
+</form>
+
+
+{% endblock %}
+
+</html>
