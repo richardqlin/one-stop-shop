@@ -10,7 +10,7 @@ app = Flask('One-Stop-Shop')
 
 
 app.config['SECRET_KEY'] ='sOmE_rAnDom_woRd'
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/one-stop-ship-db'
+app.config['MONGO_URI'] = 'mongodb://localhost:27017/one-stop-shop-db'
 
 Bootstrap(app)
 mongo = PyMongo(app)
